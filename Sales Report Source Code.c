@@ -1,7 +1,7 @@
 #include <stdio.h>
 //defines the funtion for the sales report
-void salesreport(float *money) {
-    char months[12][20] = {"January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+void salesreport(float money[12]) {
+    char months[12][20] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     printf("\nMonthly Sales Report for 2022:\n\n");
     printf("%-10s %s\n\n", "Month", "Sales");
     for (int i = 0; i < 12; i++) {
@@ -9,8 +9,8 @@ void salesreport(float *money) {
     }
 }
 //defines the function for the sales summary
-void salessummary(float *money) {
-    char months[12][20] = {"January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+void salessummary(float money[12]) {
+    char months[12][20] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     printf("\nSales Summary:\n\n");
     float total = 0, min = 0, max = 0;
     int minmonth, maxmonth;
@@ -25,8 +25,8 @@ void salessummary(float *money) {
     printf("%-15s %.2f\n", "Average Sales:", total/12);
 }
 //defines the function for the moving average
-void movingavg(float *money) {
-    char months[12][20] = {"January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+void movingavg(float money[12]) {
+    char months[12][20] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     float avg, total = 0;
     printf("\nSix Month Moving Average Report:\n\n");
     for (int i = 0; i + 6 < 12; i++) {
@@ -39,8 +39,8 @@ void movingavg(float *money) {
     }
 }
 //defines the function for the highest to lowest months
-void hightolow(float *money) {
-    char months[12][20] = {"January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+void hightolow(float money[12]) {
+    char months[12][20] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     int used[12] = {0};
     printf("\nSales Report (Highest to Lowest)\n\n");
     printf(" Month      Sales\n\n");
@@ -65,14 +65,13 @@ int main (){
     FILE *inputfile;
     float nums[12]; 
     int count = 0;
-    char months[12][20] = {"January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    char months[12][20] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     printf("Enter the name of the input file: ");
     scanf("%s", filename);
     inputfile = fopen(filename, "r");
     while (count < 12 && fscanf(inputfile, "%f\n", &nums[count]) == 1){
         count++;
     }
-    fclose(inputfile);
     salesreport(nums);
     salessummary(nums);
     movingavg(nums);
