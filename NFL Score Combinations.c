@@ -15,7 +15,7 @@ int main() {
                     for (int num6 = 0; num6 <= target/6; num6++){
                         for (int num7 = 0; num7 <= target/7; num7++){
                             for (int num8 = 0; num8 <= target/8; num8++){
-                                int sum = num2*2 + num3*3 + num6*6 + num7+7 +num8*8;
+                                int sum = num2*2 + num3*3 + num6*6 + num7*7 +num8*8;
                                 if (sum == target) {
                                     printf("%d TD + 2pt,", num8);
                                     printf("%d TD + FG,", num7);
